@@ -98,46 +98,162 @@
 						<!-- Content -->
 							<section id="content">
 								<center><img src="images/github/octocat.png" alt="Octocat" style="width:250px;height:250px;"></center>
-								<h3>Contents</h3>
-								<p>Add hyperlinks.</p>
+								</br>
+
+								<center><h3>What is GitHub and why use it?</h3></center>
+								<a href="https://github.com/">GitHub</a> is one of many platforms that provide a convenient web interface for Git, an open-source version control system. 
+								Version control with GitHub has many benefits, including:
+								<ul>
+									<li>The ability to easily back-up and rollback changes to your personal projects.</li>
+									<li>The ability to access your work across different computers or other platforms.</li>
+									<li>Fascilitating collaorative development and the sharing of code.</li>
+									<li>Allowing for the publication of websites such as this one.</li>
+								</ul></br>
+								GitHub can be used in many ways, including through its website interface and an integrated GUIs in editors like VS Code. 
+								Here I give some basic details and reference commands for how to work with GitHb through the command line.</br></br>
+								For details on how to install git check <a href="https://www.atlassian.com/git/tutorials/install-git">here</a>.</br>
+								Atlassian also has great detailed tutorials on the Git workflow <a href="https://www.atlassian.com/git">here</a>.
+								</br></br>
+								</br>
 								
-								<h3>What is GitHub and why use it?</h3>
-								<p>Description of what GitHub is.</p>
-								<p>Explanation for why you'd want to use GitHub/version control</p>
+								<center><h3>GitHub command references</h3></center>
+								<center><a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-config"><code>git config</code></a></center>
+								See values for configuration settings. E.g., <code>git config user.email</code></br>
+								Edit values of configuration settings. E.g., <code>git config --global user.email "your_email@example.com"</code></br>
+								The <code>--local</code></a> flag changes the values just for this repository in the .git/config file (default behaviour).</br>
+								The <code>--global</code></a> flag changes the values on an operating system level in the .gitconfig file in the user's home directory.</br></br></br>
 
-								<h3>Setting up GitHub</h3>
-								<p>Brief description.</p>
+								<center><a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-init"><code>git init</code></a></br>
+								<code>git init &lt;directory&gt;</code><code>git init --bare &lt;directory.git&gt;</code></center>
+								Turns the currecnt directory into a Git repository, or creates a new git repository at the specified directory.</br>
+								The <code>--bare</code> flag is typically used to set up a central repository of a shared project.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone"><code>git clone &lt;repo&gt;</code></a></br>
+								<code>git clone &lt;repo&gt; &lt;directory&gt;</code><code>git clone --branch &lt;tag&gt; &lt;repo&gt;</code></center>
+								Creates a copy of an existing repository.</br>
+								Use <code>git clone --branch &lt;tag&gt;</code> to specify the branch to copy.</br></br></br>
+								
+								<center><a href="https://www.atlassian.com/git/tutorials/saving-changes"><code>git add</code></a></br>
+								<code>git add &lt;filename&gt;</code><code>git add &lt;directory&gt;</code><code>git add -A</code><code>git add .</code></br>
+								<code>git add -u</code><code>git add -p</code></center>
+								Adds changes from the working directory to the staging area.</br>
+								Stage all (new, modified, deleted) files <code>git add -A</code></br>
+								Stage all (new, modified, deleted) files in a directory <code>git add &lt;directory&gt;</code></br>
+								Stage modified and deleted files only (not new files) <code>git add -u</code></br>
+								Begin an interactive staging sessiong <code>git add -p</code></br>
+								Files and filetypes you don't want added can be specified in your <code>.gitignore</code>.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/saving-changes/git-commit"><code>git commit</code></a></br>
+								<code>git commit -m &lt;message&gt;</code><code>git commit --ammend</code></br></center>
+								Captures a snapshot of the project's currently staged changes.</br>
+								Use <code>-m</code> to add a commit message in the command window.</br>
+								The <code>--a</code> flag automatically stages modified or deleted files (but not new files).</br>
+								The <code>--amend</code> flag is used to ammend the previous commit. Use <code>--no-edit</code> to avoid updating the commit message.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/saving-changes/git-stash"><code>git stash</code></a></br></center>
+								I'll come back to this one...[appropriately]. Can be reaccessed with git stash pop</br></br></br>
+								
+								<center><a href="https://www.atlassian.com/git/tutorials/inspecting-a-repository"><code>git status</code></a></center>
+								Displays the state of the working directory and the staging area</br>
+								List which files are staged, unstaged, and untracked.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/saving-changes/git-diff"><code>git diff</code></a></br>
+								<code>git diff HEAD</code><code>git diff --cached</code> </center>
+								Displays differences between two data sets (can be files, commits, branches, etc).</br>
+								<code>git diff</code> shows uncommitted changes since the last commit.</br>
+								<code>git diff HEAD </code> shows differences between the working directory and the last commit.</br>
+								<code>git diff --cached</code>  show differences between staged changes and the last commit</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/git-log"><code>git log</code></a></center>
+								<code>--graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit</code></br>
+								Displays the commit history, with nice formatting if you use the fancy flags above (could be made an alias).</br></br></br>
+
+								<center><a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-clean"><code>git clean</code></a></br>
+								<code>git clean -n</code><code>git clean -f</code><code>git clean -d</code></center>
+								Works as an undo on untracked files.  Default is non-recursive through directories.</br>
+								The <code>-n</code> flag performs a dry run and displays which files would be removed.</br>
+								Requires <code>-f</code> flag to be applied to force deletion.<br>
+								The <code>-d</code> flag allows removal of untracked directories..<br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-revert"><code>git revert</code></a></br>
+								<code>git revert &lt;commit ref&gt;</code></center>
+								Performs a new commit that undoes any previous commit</br>
+								<code>git revert HEAD</code> is used to revert to the previous commit</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/undoing-changes/git-reset"><code>git reset</code></a></br>
+								<code>...</code></center>
+								...I'll come back to this...</br>
+								--soft, --mixed, --hard</br>
+								Moves both the HEAD and branch refs to a specified commit.</br>
+								N.B. Reverting can cause issues in shared repositories</br></br></br>
+								
+								<center><a href="https://www.atlassian.com/git/tutorials/syncing"><code>git remote</code></a></br>
+								<code>git remote -v</code><code>git remote add &lt;name&gt; &lt;url&gt;</code></center>
+								Lets you create, view, and delete connections to other repositories, serving as a placeholder in <code>.git/config</code> for the full URL.</br>
+								<code>git remote</code> lists the remote connections to other repositories.</br>
+								<code>git remote -v</code> includes the URL of each connection.</br>
+								<code>git remote add &lt;name&gt; &lt;url&gt;</code> creates a new connection to a remote repository.</br>
+								<code>git remote rm &lt;name&gt;</code> removes the connection to a remote repository.</br>
+								<code>git remote rename &lt;old_name&gt; &lt;new_name&gt;</code> renames a remote connection</br></br></br>
+
+								<center><a href="https://www.atlassian.com/git/tutorials/syncing/git-fetch"><code>git fetch</code></a></br>
+								<code>git fetch &lt;remote&gt;</code><code>git fetch &lt;remote&gt; &lt;branch&gt;</code></center>
+								Primary command to download commits, files, and refs from a remote repository into a local repo.</br>
+								Safer than <code>git pull</code> as it downloads the remote content but does not update the local repo's working state.</br>
+								<code>git fetch &lt;remote&gt;</code> downloads all branches, commits and files from a repository.</br>
+								<code>git fetch &lt;remote&gt; &lt;branch&gt;</code> fetches only the specified branch.</br>
+								The <code>--dry-run</code> flag outputs examples of actions that would be performed but not apply them.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/syncing/git-pull"><code>git pull</code></a></br>
+								<code>git pull --rebase</code><code>git pull &lt;remote&gt;</code><code>git pull --verbose</code></center>
+								The git pull command is actually a combination of two other commands, git fetch followed by git merge.</br>
+								Use <code>--rebase</code> flag to implement a rebase merging strategy instead of a merge commit.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/syncing/git-push"><code>git push</code></a></br>
+								<code>git push &lt;remote&gt; &lt;branch&gt;</code></center>
+								Used to transfer commits from your local repository to a remote repository.</br></br>
+								
+								<center><a href="https://www.atlassian.com/git/tutorials/using-branches"><code>git branch</code></a></br>
+								<code>git branch &lt;branch&gt;</code><code>git branch -a</code></center>
+								The git branch command lets you create, list, rename, and delete branches.</br>
+								Each branch has its own working directory, staging area, and project history.</br>
+								A new branch shouuld be used wheneveer adding a new feature or fixing a bug.</br>
+								New commits are recorded in the history for the current branch, which results in a fork in the history of the project.</br>
+								<code>git branch</code> lists all of the local branches in a repository. Equivalent to <code>git branch --list</code>.</br>
+								<code>git branch -a</code> lists all of the remote branches for a repository.</br>
+								<code>git branch &lt;branch&gt;</code> creates a new branch. Run <code>git checkout &lt;branch&gt;</code> after to switch to this branch.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/using-branches/git-checkout"><code>git checkout</code></a></br>
+								<code>git checkout &lt;branch&gt;</code><code>git checkout -b &lt;newbranch&gt;</code><code>git checkout -b &lt;newbranch&gt; &lt;existingbranch&gt;</code></center>
+								Updates the files in the working directory to match the version stored in that branch, and tells Git to record all new commits on that branch.</br>
+								<code>git checkout &lt;branch&gt;</code> switches to a branch, pointing HEAD to the tip of that branch.</br>
+								<code>git checkout -b &lt;newbranch&gt;</code> creates a new branch and switches to that branch.</br>
+								<code>git checkout -b &lt;newbranch&gt; &lt;existingbranch&gt;</code> bases the new branch off a different base, instead of HEAD.</br></br>
+								<center><a href="https://www.atlassian.com/git/tutorials/using-branches/git-merge"><code>git merge</code></a></br>
+								<code>git merge &lt;branch&gt;</code><code>git merge &lt;branch&gt; --no-ff</code></center>
+								Combines another branch into the current branch.</br>
+								Before merging:
 								<ul>
-									<li>Step 1</li>
-									<li>Step 2</li>
-									<li>Etc.</li>
+								    <li>Execute <code>git status</code> to ensure that HEAD is pointing to the correct merge-receiving branch.</li>
+									<li>Execute <code>git checkout</code> to switch to the receiving branch if not on it already.</li>
+									<li>Execute <code>git fetch</code> to pull the latest remote commits.</li>
+									<li>Once the fetch is completed ensure the main branch has the latest updates by executing <code>git pull</code>.</li>
 								</ul>
-
-								<h3>GitHub workflow.</h3>
-								<p>Brief description.</p>
+								<code>git merge &lt;branch&gt;</code> merges that branch into the receiving branch.</br>
+								Pass the <code>--no-ff</code> flag to create a new commit that documents this merge.</br>
+								If a merge conflict occurs:
 								<ul>
-									<li>Step 1</li>
-									<li>Step 2</li>
-									<li>Etc.</li>
+									<li>Run <code>git status</code> to show which files need to be resolved.</li>
+									<li>Resolve differences between files.</li>
+									<li>Run <code>git add</code> on the conflicted file(s) to tell Git they're resolved.</li>
+									<li>Run a normal git commit to generate the merge commit.</li>
 								</ul>
+								</br></br>
 
-								<h3>For commands....</h3>
-								<pre><code>i = 0;
+								<center><a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase"><code>git rebase</code></a></br>
+								<code>git rebase &lt;base&gt;</code><code>git rebase -i &lt;base&gt;</code></center>
+								Moves or combines a sequence of commits to a new base commit.</br>
+								Never rebase commits once they've been pushed to a public repository.</br>
+								<code>git rebase &lt;base&gt;</code> automatically rebases the current branch onto &lt;base&gt;</br>
+								Pass the <code>-i</code> flag to rebase interactively.</br>
+								</br></br>
 
-	while (!deck.isInOrder()) {
-	    print 'Iteration ' + i;
-	    deck.shuffle();
-	    i++;
-	}
-
-	print 'It took ' + i + ' iterations to sort the deck.';
-	</code></pre>
-
-								<h4>Left &amp; Right</h4>
-								<p><span class="image left"><img src="images/pic08.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam.</p>
-								<p><span class="image right"><img src="images/pic08.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam. Cras aliquet accumsan curae accumsan arcu amet egestas placerat odio morbi mi adipiscing col morbi felis faucibus in gravida sollicitudin interdum commodo. Ante aliquam vis iaculis accumsan lorem ipsum dolor sit amet nullam.</p>
-							</section>
-
+								Todo:</br>
+								<ul>
+									<li>Git stash.</li>
+									<li>Git reset.</li>
+								</ul>
+								</br>
 					</div>
 				</div>
 
