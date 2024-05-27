@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Python Style</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<nav id="nav">
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							
+							<li>
+								<a href="#">Research</a>
+								<ul>
+									<li><a href="test.html">Arctic Cyclones</a></li>
+									<li><a href="test.html">Future Arctic Cyclones</a></li>
+									<li><a href="test.html">Cyclone Data Assimilation</a></li>
+									<li><a href="test.html">ENSO-Arctic Teleconnections</a></li>
+									<li><a href="test.html">Sea Ice Thickness</a></li>
+									<li><a href="test.html">Antarctic Cyclones</a></li>
+									<li><a href="test.html">Mars</a></li>
+									<li><a href="test.html">Methane Remote Sensing</a></li>
+									<li><a href="test.html">Miscellaneous</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Resources</a>
+								<ul>
+									<li><a href="test.html">Python</a></li>
+									<li><a href="test.html">Machine Learning</a></li>
+									<li><a href="test.html">Climate Modelling</a></li>
+									<li><a href="github.html">GitHub</a></li>
+									<li><a href="website_creation.html">Website Creation</a></li>
+									<li><a href="test.html">????</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Layouts</a>
+								<ul>
+									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option 1</a></li>
+											<li><a href="#">Option 2</a></li>
+											<li><a href="#">Option 3</a></li>
+											<li><a href="#">Option 4</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							
+							<li>
+								<a href="test.html">Test</a>
+								<ul>
+									<li><a href="test.html">Test</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option 1</a></li>
+											<li><a href="#">Option 2</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="https://github.com/robin-clancy/robin-clancy.github.io" class="button primary">GitHub</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Python Style</h2>
+							<p style="text-align:left;">A reference page with templates for how to write appropriately styled Python code.
+								Vaugely based on <a href="https://peps.python.org/pep-0008/">PEP8</a> (and eventually specifically
+								<a href="https://black.readthedocs.io/en/stable/">Black</a>?) guidelines.
+								Not exhaustive - there's plenty of stuff that's easily remembered or too granular/specific to include.<br><br>
+								<a href="https://gist.github.com/RichardBronosky/454964087739a449da04">This</a> source is referenced heavily.<br><br>
+							    Later I will add downloadable templates for .py and .ipynb files. Also maybe examples of how to use Black.<br><br>
+								<a href="resources/ipynb_template.ipynb" download>Download ipynb template</a>
+							</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<center><h3>Docstrings</h3></center>
+<pre><code>"""This module's docstring summary line.
+
+Paragraphs are separated with blank lines.
+"""</code></pre>
+								
+								<center><h3>Imports</h3></center>
+<pre><code>import os  # standard library imports first
+import sys  # in alphabetical order
+
+import some_third_party_lib  # 3rd party stuff next
+
+import local_stuff</code></pre>
+
+								<center><h3>Functions</h3></center>
+<pre><code>def function_name(param1: type | type2, param2: type = default_val) -> return_type:
+    """Description of the function and its arguments.
+
+    Args:
+        param1 (type, type2): The first parameter.
+        param2 (type): The second parameter. Defaults to default_val.
+
+    Returns:
+    	return_type: Description of the return value.
+    """
+    return_val = param1 + param2  # Comment
+    return return_val</code></pre>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

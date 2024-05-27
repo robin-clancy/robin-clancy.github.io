@@ -1,0 +1,201 @@
+<!DOCTYPE HTML>
+<!--
+	Landed by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Conda</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="page-wrapper">
+
+			<!-- Header -->
+				<header id="header">
+					<nav id="nav">
+						<ul>
+							<li>
+								<a href="index.html">Home</a>
+							</li>
+							
+							<li>
+								<a href="#">Research</a>
+								<ul>
+									<li><a href="test.html">Arctic Cyclones</a></li>
+									<li><a href="test.html">Future Arctic Cyclones</a></li>
+									<li><a href="test.html">Cyclone Data Assimilation</a></li>
+									<li><a href="test.html">ENSO-Arctic Teleconnections</a></li>
+									<li><a href="test.html">Sea Ice Thickness</a></li>
+									<li><a href="test.html">Antarctic Cyclones</a></li>
+									<li><a href="test.html">Mars</a></li>
+									<li><a href="test.html">Methane Remote Sensing</a></li>
+									<li><a href="test.html">Miscellaneous</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Resources</a>
+								<ul>
+									<li><a href="test.html">Python</a></li>
+									<li><a href="test.html">Machine Learning</a></li>
+									<li><a href="test.html">Climate Modelling</a></li>
+									<li><a href="github.html">GitHub</a></li>
+									<li><a href="website_creation.html">Website Creation</a></li>
+									<li><a href="test.html">????</a></li>
+								</ul>
+							</li>
+
+							<li>
+								<a href="#">Layouts</a>
+								<ul>
+									<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									<li><a href="no-sidebar.html">No Sidebar</a></li>
+									<li><a href="elements.html">Elements</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option 1</a></li>
+											<li><a href="#">Option 2</a></li>
+											<li><a href="#">Option 3</a></li>
+											<li><a href="#">Option 4</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							
+							<li>
+								<a href="test.html">Test</a>
+								<ul>
+									<li><a href="test.html">Test</a></li>
+									<li>
+										<a href="#">Submenu</a>
+										<ul>
+											<li><a href="#">Option 1</a></li>
+											<li><a href="#">Option 2</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><a href="https://github.com/robin-clancy/robin-clancy.github.io" class="button primary">GitHub</a></li>
+						</ul>
+					</nav>
+				</header>
+
+			<!-- Main -->
+				<div id="main" class="wrapper style1">
+					<div class="container">
+						<header class="major">
+							<h2>Conda</h2>
+							<p>Reference for how to use Conda (specifically Anaconda in this case) to create virtual environments and configure them to work with Jupyter notebooks.</p>
+						</header>
+
+						<!-- Content -->
+							<section id="content">
+								<center><img src="images/conda/Conda_logo.svg.png" alt="" style="width:500px;height:100px;"></center>
+								<br>	
+								This page provides a reference for myself or others for how to generate a virtual environment using Anacconda from scratch.
+								The main use case discussed is generating a new Python evnrionment and configuring it to work with Jupyter notebooks.
+								It is good practice to generate a new python environment for each project.
+								<br><br>
+								
+								<span style="font-size:1.35em; color: #ffffff; font-weight: 300;">Step 1. Installing Anaconda</span></br>
+								Find a link to the command line installer for Anaconda (Miniconda may be a preferable alternative)<br>
+								e.g. https://repo.anaconda.com/archive/Anaconda3-2020.07-MacOSX-x86_64.sh.<br></br>
+								
+								<code>wget &lt;link_to_installer&gt;</code><br>
+								<code>bash installer.sh</code><br><br>
+
+								Let it initialize conda for you when it asks.<br>
+								Check .bashrc to see if this puts in the path correctly.<br>
+								If using a different shell (e.g. tcsh on atmos computers check .tcshrc)<br>
+								For zsh on Mac use: bash -c "conda init zsh"<br><br>
+
+								Verify conda installation: <code>conda info</code><br><br>
+
+								<span style="font-size:1.35em; color: #ffffff; font-weight: 300;">Step 2: Creating a new virtual environment</span><br>
+								To see available environments: <code>conda env list</code><br><br>
+
+								To create a new environment use one of these:<br>
+								<code>conda create -n &lt;envname&gt;</code><br>
+								<code>conda create -n &lt;envname&gt; python=3.6</code>(e.g., for a specific python version)<br>
+								<code>conda create --clone &lt;envname&gt; --name &lt;newenvname&gt;</code><br><br>
+
+								<span style="font-size:1.35em; color: #ffffff; font-weight: 300;">Step 3: Activating an environment</span><br>
+								Environments must be activated to update or use them: <code>conda activate myenv</code><br>
+
+								To stop working with an environment: <code>conda deactivate</code><br>
+
+								To remove an environment entirely: <code>conda env remove -n &lt;envname&gt;</code><br><br>
+
+								<span style="font-size:1.35em; color: #ffffff; font-weight: 300;">Step 4: Setting up environment to work with Jupyter notebooks</span><br>
+								Ensure conda environment is activated first.<br>
+								Install ipykernel package: <code>conda install ipykernel</code><br>
+								
+								Then add the environment (i.e. kernel) to Jupyter: <code>python -m ipykernel install --user --name=&lt;envname&gt;</code><br><br>
+								
+								To remove an environment from Jupyter use: <code>jupyter kernelspec list</code> and <code>jupyter kernelspec uninstall &lt;envname&gt;</code><br><br>
+
+								<span style="font-size:1.35em; color: #ffffff; font-weight: 300;">Step 5: Adding, updating and removing packages</span><br>
+								Ensure conda environment is activated first.<br>
+								To view all packages in current environment: <code>conda list</code><br>
+								To install a package: <code>conda install packagename</code> or <code>pip install packagename</code> </br>
+
+To install a specific package version:
+conda install packagename=1.11
+or for stricter constraints:
+conda install packagename==1.11
+
+To specify conda forge:
+conda install --channel conda-forge packagename
+
+To update a package:
+conda update packagename
+
+To remove a package:
+conda remove --name myenv packagename
+Misc tips.
+
+To check python version:
+python --version
+
+To check python path:
+which -a python (1st entry is path used)
+
+To see history of environment:
+conda list --revisions
+
+To revert back to an old version of environment:
+conda install --revision 2
+
+							</section>
+
+					</div>
+				</div>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<ul class="copyright">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</footer>
+
+		</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
